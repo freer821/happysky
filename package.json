@@ -1,0 +1,23 @@
+{
+  "name": "happysky",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ babelify --presets [ react ] ] app/view/controll/controll.js -o libs/react/controll.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.23.0",
+    "babelify": "^7.3.0",
+    "danmaku": "^1.2.0",
+    "express": "^4.15.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "socket.io": "^1.7.3",
+    "videojs-contrib-hls": "^5.3.3"
+  }
+}

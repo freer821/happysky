@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      #form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      #form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      #form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #video { list-style-type: none; margin: 0; padding: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- This div's content will be managed by React. -->
+    </div>    
+      <video id="video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
+      </video>
+
+    <div id="form">
+      <input id="m" autocomplete="off" /><button id="send-button" >Send</button>
+    </div>
+    
+    <script src="/libs/controll.js" ></script>
+    <script src="/scripts/video.js/dist/video.js"></script>
+    <script src="/scripts/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+    <script src="/scripts/danmaku/dist/danmaku.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var live_video = document.getElementById('video');
+        var source = document.createElement('source');
+        source.src = "http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8";
+        source.type = "application/x-mpegURL";
+        live_video.appendChild(source);
+
+        var danmaku = new Danmaku();
+        danmaku.init({
+          video: document.getElementById('video'),
+          engine: 'canvas'
+        });
+        var socket = io();
+        var btn = document.getElementById('send-button');
+        btn.addEventListener('click', function() {
+          var comment = {
+            text: 'bla bla',
+            style: {
+              fontSize: '1000px',
+              color: '#000000'
+            }
+          };
+          socket.emit('danmaku', comment);
+        });
+        socket.on('danmaku', function(comment) {
+          console.log(comment);
+          danmaku.emit(comment);
+        });
+    </script>
+  </body>
+</html>
