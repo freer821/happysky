@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t [ babelify --presets [ react ] ] app/view/controll/controll.js -o libs/react/controll.js"
+    "build": "browserify -t [ babelify --presets [ react es2015 ] ] app/view/controll/main.js -o libs/react/main.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,8 @@
     "react-dom": "^15.4.2",
     "socket.io": "^1.7.3",
     "videojs-contrib-hls": "^5.3.3"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0"
   }
 }
