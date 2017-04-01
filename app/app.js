@@ -6,7 +6,7 @@ var path = require('path');
 
 
 app.use('/scripts', express.static(path.join(__dirname, '../node_modules')));
-app.use('/libs', express.static(path.join(__dirname, '../libs')));
+app.use('/reactlib', express.static(path.join(__dirname, '../libs/react')));
 app.use('/data', express.static(path.join(__dirname, '../data')));
 
 
