@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Happy Sky</title>
     <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,16 +12,16 @@
     </style>
   </head>
   <body>
-    <div id="root">
+    <div id="app">
       <!-- This div's content will be managed by React. -->
-    </div>    
-      <video id="video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
-      </video>
+    </div>
+    <video id="video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}">
+    </video>
 
     <div id="form">
       <input id="m" autocomplete="off" /><button id="send-button" >Send</button>
     </div>
-    
+
     <script src="/scripts/video.js/dist/video.js"></script>
     <script src="/scripts/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
     <script src="/scripts/danmaku/dist/danmaku.min.js"></script>
