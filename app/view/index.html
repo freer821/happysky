@@ -33,6 +33,10 @@
         source.src = "http://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8";
         source.type = "application/x-mpegURL";
         live_video.appendChild(source);
+        live_video.height = window.innerHeight;
+        live_video.width = window.innerWidth;
+
+        live_video.load();
 
         var danmaku = new Danmaku();
         danmaku.init({
@@ -46,7 +50,7 @@
             text: 'bla bla',
             style: {
               fontSize: '1000px',
-              color: '#000000'
+              color: '#FFFFFF'
             }
           };
           socket.emit('danmaku', comment);
