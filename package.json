@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t [ babelify --presets [ react es2015 ] ] app/view/react/main.js -o app/libs/react/main.js"
+    "build": "browserify -t [ babelify --presets [ react es2015 ] ] app/view/react/main.js -o app/libs/main.js"
   },
   "author": "",
   "license": "ISC",
